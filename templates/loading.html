@@ -6,6 +6,15 @@
 
 {% block body %}
 <div id="wrapper">
+    <header id="header">
+        <div class="inner">
+
+            <!-- Logo -->
+            <a href="{{ url_for('index') }}" class="logo">
+                <span class="symbol"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="" /></span><span class="title">Phantom</span>
+            </a>
+        </div>
+    </header>
     <!-- Main -->
     <div id="main">
         <div class="inner">
