@@ -37,8 +37,7 @@
                             <label for="eddy">Eddy</label>
                             <input type="checkbox" id="lillian" name="lillian" value="Lillian">
                             <label for="lillian">Lillian</label>
-                            <a href="{{ url_for('loading') }}" class="button">Find restaurants!</a>
-							<section class="tiles">
+							<section class="tiles" style="margin-top: 0">
 								<article class="style1">
 									<span class="image">
 										<img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="" />
@@ -136,6 +135,11 @@
 									</a>
 								</article>
 							</section>
+
+                            <br>
+                            <br>
+                            <br>
+                            <a href="{{ url_for('loading') }}" class="button fit">Find restaurants!</a>
 						</div>
 					</div>
 			</div>
