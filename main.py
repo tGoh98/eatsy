@@ -31,8 +31,14 @@ def loading():
 @app.route('/results')
 def results():
     restaurants = json.load(open('dummyRestaurants.json'))
-    data = [7.5, 2.6, 3.2, 5.0, 2.9, 10.0]
-    labels = ['Quiet Atmosphere', 'Mexican Food', 'Late Night', 'Good For Dancing', 'Take Out', 'WiFi']
+
+    group_preferences = json.load(open('grouppreferences.txt'))
+    data = []
+    labels = []
+    for rest in group_preferences:
+        print(rest)
+        labels.append(rest.replace('&', 'and'))
+        data.append(group_preferences[rest])
     return render_template('results.html', restaurants=restaurants, data=data, labels=labels)
 
 
