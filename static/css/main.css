@@ -33,6 +33,14 @@ body {
 	line-height: 1;
 }
 
+p.progress {
+	margin: 0;
+}
+
+img.progress {
+	max-width: 300px;
+}
+
 ol, ul {
 	list-style: none;
 }
