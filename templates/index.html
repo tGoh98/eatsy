@@ -23,21 +23,24 @@
 						<div class="inner">
 							<header>
 								<h1>Who's Eating Today?</h1>
-								<p>Select which of these people are going out to eat together.</p>
+								<p>Select which of the following people are going out to eat together.</p>
 							</header>
                             <form method=post>
-                                <input type="checkbox" id="michael" name="michael" value="Michael">
-                                <label for="michael">Michael</label>
-                                <input type="checkbox" id="yong" name="yong" value="Yong">
-                                <label for="yong">Yong</label>
-                                <input type="checkbox" id="tim" name="tim" value="Tim">
-                                <label for="tim">Tim</label>
-                                <input type="checkbox" id="keziah" name="keziah" value="Keziah">
-                                <label for="keziah">Keziah</label>
-                                <input type="checkbox" id="eddy" name="eddy" value="Eddy">
-                                <label for="eddy">Eddy</label>
-                                <input type="checkbox" id="lillian" name="lillian" value="Lillian">
-                                <label for="lillian">Lillian</label>
+                                {% for user in users %}
+                                    <input type="checkbox" id="{{ user }}" name="{{ user }}" value="{{ user }}">
+                                    <label for="{{ user }}">{{ user }}</label>
+                                {%  endfor %}
+
+{#                                <input type="checkbox" id="yong" name="yong" value="Yong">#}
+{#                                <label for="yong">Yong</label>#}
+{#                                <input type="checkbox" id="tim" name="tim" value="Tim">#}
+{#                                <label for="tim">Tim</label>#}
+{#                                <input type="checkbox" id="keziah" name="keziah" value="Keziah">#}
+{#                                <label for="keziah">Keziah</label>#}
+{#                                <input type="checkbox" id="eddy" name="eddy" value="Eddy">#}
+{#                                <label for="eddy">Eddy</label>#}
+{#                                <input type="checkbox" id="lillian" name="lillian" value="Lillian">#}
+{#                                <label for="lillian">Lillian</label>#}
 
                                 <section class="tiles" style="margin-top: 0">
                                     <article class="style1">

@@ -9,7 +9,9 @@ def index():
     if request.method == 'POST':
         json.dump(request.form, open('selectedUsers.json', 'w'))
         return render_template("loading.html")
-    return render_template("index.html")
+
+    users = json.load(open('dummyUsers.json'))
+    return render_template("index.html", users=users)
 
 
 @app.route('/loading')
