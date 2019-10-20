@@ -119,6 +119,22 @@ def findgoodinps(limit = 100):
 
 # In[531]:
 
+def make_pretty(attr):
+    pretty_string = ""
+    for i in range(len(attr)):
+        char = attr[i]
+
+        if char == '_':
+            pretty_string += ' '
+            continue
+
+        if char.isupper() and not attr[i - 1].isupper() and not attr[i + 1].isupper() and i != 0:
+            pretty_string += ' '
+
+        pretty_string += char
+
+    return pretty_string
+
 
 def makemodel(inp):
     tojson = {}
@@ -142,7 +158,9 @@ def makemodel(inp):
     arr2 = (arr2-min(arr2))/(max(arr2)-min(arr2)) * 10
     print(arr2)
     arr2 = [int(round( i,0)) for i in arr2]
-    return c, {list(tojson.keys())[i]:arr2[9 - i] for i in range(3)}
+
+    oldkey = lambda i: list(tojson.keys())[i]
+    return c, {make_pretty(oldkey(i)):arr2[9 - i] for i in range(3)}
 
 
 # In[532]:

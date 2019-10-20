@@ -19,7 +19,7 @@ def getsamplepeople():
 
     with open('idtonameandattr.txt', 'w') as outfile:
         json.dump(tojson,outfile)
-
+getsamplepeople()
 
 
 
