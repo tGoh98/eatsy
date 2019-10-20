@@ -27,7 +27,8 @@ def loading():
 
 @app.route('/results')
 def results():
-    return render_template('results.html')
+    restaurants = json.load(open('dummyRestaurants.json'))
+    return render_template('results.html', restaurants=restaurants)
 
 
 @app.route('/elements')

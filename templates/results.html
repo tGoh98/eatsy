@@ -25,102 +25,71 @@
                         <p style="margin-bottom: 0">Based on how well your group's preferences matched with the restaurant's attributes</p>
                     </header>
                     <section class="tiles" style="margin-top: 0">
-                        <article class="style1">
-                            <span class="image">
-                                <img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="" />
-                            </span>
-                            <a>
-                                <h2>Mala Sichuan</h2>
-                                <div class="content">
-                                    <p class="progress">Low budget</p>
-                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
-                                    <p class="progress">Good for families</p>
-                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
-                                    <p class="progress">Quiet atmosphere</p>
-                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
-                                </div>
-                            </a>
-                        </article>
-                        <article class="style2">
-                            <span class="image">
-                                <img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" />
-                            </span>
-                            <a>
-                                <h2>Chipotle</h2>
-                                <div class="content">
-                                    <p class="progress">Low budget</p>
-                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
-                                    <p class="progress">Good for families</p>
-                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
-                                    <p class="progress">Quiet atmosphere</p>
-                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
-                                </div>
-                            </a>
-                        </article>
-                        <article class="style3">
-                            <span class="image">
-                                <img src="{{ url_for('static', filename='images/pic03.jpg') }}" alt="" />
-                            </span>
-                            <a>
-                                <h2>Taco Bell</h2>
-                                <div class="content">
-                                    <p class="progress">Low budget</p>
-                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
-                                    <p class="progress">Good for families</p>
-                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
-                                    <p class="progress">Quiet atmosphere</p>
-                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
-                                </div>
-                            </a>
-                        </article>
-                        <article class="style4">
-									<span class="image">
-										<img src="{{ url_for('static', filename='images/pic04.jpg') }}" alt="" />
-									</span>
-									<a>
-										<h2>Yumcha</h2>
-										<div class="content">
-											<p class="progress">Low budget</p>
-                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
-                                            <p class="progress">Taco Bell</p>
-                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
-                                            <p class="progress">Quiet atmosphere</p>
-                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
-										</div>
-									</a>
-								</article>
-								<article class="style5">
-									<span class="image">
-										<img src="{{ url_for('static', filename='images/pic05.jpg') }}" alt="" />
-									</span>
-									<a>
-										<h2>Torchy's</h2>
-										<div class="content">
-											<p class="progress">Low budget</p>
-                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
-                                            <p class="progress">Taco Bell</p>
-                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
-                                            <p class="progress">Quiet atmosphere</p>
-                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
-										</div>
-									</a>
-								</article>
-								<article class="style6">
-									<span class="image">
-										<img src="{{ url_for('static', filename='images/pic06.jpg') }}" alt="" />
-									</span>
-									<a>
-										<h2>Domino's</h2>
-										<div class="content">
-											<p class="progress">Low budget</p>
-                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
-                                            <p class="progress">Taco Bell</p>
-                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
-                                            <p class="progress">Quiet atmosphere</p>
-                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
-										</div>
-									</a>
-								</article>
+                        {% for restaurant in restaurants %}
+                            <article class="style{{ loop.index }}">
+                                <span class="image">
+                                    {% if loop.index == 1 %}
+                                        <img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="" />
+                                    {% endif %}
+                                    {% if loop.index == 2 %}
+                                        <img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" />
+                                    {% endif %}
+                                    {% if loop.index == 3 %}
+                                        <img src="{{ url_for('static', filename='images/pic03.jpg') }}" alt="" />
+                                    {% endif %}
+                                    {% if loop.index == 4 %}
+                                        <img src="{{ url_for('static', filename='images/pic04.jpg') }}" alt="" />
+                                    {% endif %}
+                                    {% if loop.index == 5 %}
+                                        <img src="{{ url_for('static', filename='images/pic05.jpg') }}" alt="" />
+                                    {% endif %}
+                                    {% if loop.index == 6 %}
+                                        <img src="{{ url_for('static', filename='images/pic06.jpg') }}" alt="" />
+                                    {% endif %}
+                                </span>
+                                <a>
+                                    <h2>{{ restaurant }}</h2>
+                                    <div class="content">
+                                        {% for attr in restaurants[restaurant] %}
+                                            <p class="progress">{{ attr }}</p>
+                                            {% if restaurants[restaurant][attr] == 0 %}
+                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar0.png') }}" alt="" />
+                                            {% endif %}
+                                            {% if restaurants[restaurant][attr] == 1 %}
+                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar1.png') }}" alt="" />
+                                            {% endif %}
+                                            {% if restaurants[restaurant][attr] == 2 %}
+                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar2.png') }}" alt="" />
+                                            {% endif %}
+                                            {% if restaurants[restaurant][attr] == 3 %}
+                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
+                                            {% endif %}
+                                            {% if restaurants[restaurant][attr] == 4 %}
+                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar4.png') }}" alt="" />
+                                            {% endif %}
+                                            {% if restaurants[restaurant][attr] == 5 %}
+                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
+                                            {% endif %}
+                                            {% if restaurants[restaurant][attr] == 6 %}
+                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar6.png') }}" alt="" />
+                                            {% endif %}
+                                            {% if restaurants[restaurant][attr] == 7 %}
+                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar7.png') }}" alt="" />
+                                            {% endif %}
+                                            {% if restaurants[restaurant][attr] == 8 %}
+                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar8.png') }}" alt="" />
+                                            {% endif %}
+                                            {% if restaurants[restaurant][attr] == 9 %}
+                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar9.png') }}" alt="" />
+                                            {% endif %}
+                                            {% if restaurants[restaurant][attr] == 10 %}
+                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </a>
+                            </article>
+                        {% endfor %}
                     </section>
 
                     <div>
