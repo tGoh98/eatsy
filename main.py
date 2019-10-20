@@ -1,5 +1,6 @@
-import json
+import json, createpeople
 from flask import Flask, render_template, request
+from os import path
 
 app = Flask(__name__)
 
@@ -14,9 +15,11 @@ def index():
             did_update = True
         else:
             json.dump(request.form, open('selectedUsers.json', 'w'))
-            return render_template("loading.html")
+            return render_template("loading.html", selectedUsers=request.form)
 
-    users = json.load(open('dummyUsers.json'))
+    if not path.exists('idtonameandattr.txt'):
+        createpeople.getsamplepeople()
+    users = json.load(open('idtonameandattr.txt'))
     return render_template("index.html", users=users, did_update=did_update, errorMessage=errorMessage)
 
 
@@ -28,7 +31,9 @@ def loading():
 @app.route('/results')
 def results():
     restaurants = json.load(open('dummyRestaurants.json'))
-    return render_template('results.html', restaurants=restaurants)
+    data = [7.5, 2.6, 3.2, 5.0, 2.9, 10.0]
+    labels = ['Quiet Atmosphere', 'Mexican Food', 'Late Night', 'Good For Dancing', 'Take Out', 'WiFi']
+    return render_template('results.html', restaurants=restaurants, data=data, labels=labels)
 
 
 @app.route('/elements')

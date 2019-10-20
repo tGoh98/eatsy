@@ -103,10 +103,14 @@
                         var myChart = new Chart(ctx, {
                             type: 'bar',
                             data: {
-                                labels: ['Quiet Atmosphere', 'Mexican Food', 'Late Night', 'Good For Dancing', 'Take Out', 'WiFi'],
+                                labels : [
+                                      {% for item in labels %}
+                                       "{{ item }}",
+                                      {% endfor %}
+                                ],
                                 datasets: [{
                                     label: 'Weight',
-                                    data: [7.5, 2.6, 3.2, 5.0, 2.9, 10.0],
+                                    data: {{ data }},
                                     backgroundColor: [
                                         'rgba(255, 99, 132, 0.2)',
                                         'rgba(54, 162, 235, 0.2)',

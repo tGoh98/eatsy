@@ -28,8 +28,8 @@
 
                             <form method=post>
                                 {% for user in users %}
-                                    <input type="checkbox" id="{{ user }}" name="{{ user }}" value="{{ user }}">
-                                    <label for="{{ user }}">{{ user }}</label>
+                                    <input type="checkbox" id="{{ users[user][0] }}" name="{{ user }}" value="{{ users[user][0] }}">
+                                    <label for="{{ users[user][0] }}">{{ users[user][0] }}</label>
                                 {%  endfor %}
                                 {% if did_update %}
                                     <p style="color: red">{{ errorMessage }}</p>
@@ -42,41 +42,41 @@
                                                 <img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="" />
                                             </span>
                                             <a>
-                                                <h2>{{ user }}</h2>
+                                                <h2>{{ users[user][0] }}</h2>
                                                 <div class="content">
-                                                    {% for attr in users[user] %}
+                                                    {% for attr in users[user][1] %}
                                                         <p class="progress">{{ attr }}</p>
-                                                        {% if users[user][attr] == 0 %}
+                                                        {% if users[user][1][attr] == 0 %}
                                                             <img class="progress" src="{{ url_for('static', filename='images/progressbar0.png') }}" alt="" />
                                                         {% endif %}
-                                                        {% if users[user][attr] == 1 %}
+                                                        {% if users[user][1][attr] == 1 %}
                                                             <img class="progress" src="{{ url_for('static', filename='images/progressbar1.png') }}" alt="" />
                                                         {% endif %}
-                                                        {% if users[user][attr] == 2 %}
+                                                        {% if users[user][1][attr] == 2 %}
                                                             <img class="progress" src="{{ url_for('static', filename='images/progressbar2.png') }}" alt="" />
                                                         {% endif %}
-                                                        {% if users[user][attr] == 3 %}
+                                                        {% if users[user][1][attr] == 3 %}
                                                             <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
                                                         {% endif %}
-                                                        {% if users[user][attr] == 4 %}
+                                                        {% if users[user][1][attr] == 4 %}
                                                             <img class="progress" src="{{ url_for('static', filename='images/progressbar4.png') }}" alt="" />
                                                         {% endif %}
-                                                        {% if users[user][attr] == 5 %}
+                                                        {% if users[user][1][attr] == 5 %}
                                                             <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
                                                         {% endif %}
-                                                        {% if users[user][attr] == 6 %}
+                                                        {% if users[user][1][attr] == 6 %}
                                                             <img class="progress" src="{{ url_for('static', filename='images/progressbar6.png') }}" alt="" />
                                                         {% endif %}
-                                                        {% if users[user][attr] == 7 %}
+                                                        {% if users[user][1][attr] == 7 %}
                                                             <img class="progress" src="{{ url_for('static', filename='images/progressbar7.png') }}" alt="" />
                                                         {% endif %}
-                                                        {% if users[user][attr] == 8 %}
+                                                        {% if users[user][1][attr] == 8 %}
                                                             <img class="progress" src="{{ url_for('static', filename='images/progressbar8.png') }}" alt="" />
                                                         {% endif %}
-                                                        {% if users[user][attr] == 9 %}
+                                                        {% if users[user][1][attr] == 9 %}
                                                             <img class="progress" src="{{ url_for('static', filename='images/progressbar9.png') }}" alt="" />
                                                         {% endif %}
-                                                        {% if users[user][attr] == 10 %}
+                                                        {% if users[user][1][attr] == 10 %}
                                                             <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
                                                         {% endif %}
                                                     {% endfor %}
