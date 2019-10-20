@@ -166,7 +166,7 @@ def meanModel(users, business):
 
 # In[284]:
 
-def createmodel():
+def main():
 
 
     with open('bovec.txt') as json_file:
@@ -193,6 +193,8 @@ def createmodel():
 
 
 # In[ ]:
+
+
 
 
 
