@@ -35,14 +35,6 @@ import modeltrain as mt
 # In[35]:
 
 
-with open('bovec.txt') as json_file:
-    bovec = json.load(json_file)
-# with open('buisnessoutput.txt') as json_file:
-#     bo = json.load(json_file)
-with open('allca.txt') as json_file:
-    allca = json.load(json_file)
-with open('business_map.txt') as json_file:
-    business_map = json.load(json_file)
 
 
 # In[36]:
@@ -86,8 +78,6 @@ def botovec(bsn):
 
 # In[64]:
 
-
-busidict = np.asarray(list(bovec.values()))
 
 
 # In[212]:
@@ -176,17 +166,30 @@ def meanModel(users, business):
 
 # In[284]:
 
+def createmodel():
 
-with open('selectedUsers.json') as json_file:
-    selus = json.load(json_file)
 
-add = []
-for i in range(len(list(selus.keys()))):
-    _c = mt.makemodel(list(selus.keys())[i])[0]
-    add.append(_c)
-    
-    
-a1 = meanModel(add,busidict)
+    with open('bovec.txt') as json_file:
+        bovec = json.load(json_file)
+    # with open('buisnessoutput.txt') as json_file:
+    #     bo = json.load(json_file)
+    with open('allca.txt') as json_file:
+        allca = json.load(json_file)
+    with open('business_map.txt') as json_file:
+        business_map = json.load(json_file)
+
+    busidict = np.asarray(list(bovec.values()))
+
+    with open('selectedUsers.json') as json_file:
+        selus = json.load(json_file)
+
+    add = []
+    for i in range(len(list(selus.keys()))):
+        _c = mt.makemodel(list(selus.keys())[i])[0]
+        add.append(_c)
+
+
+    a1 = meanModel(add,busidict)
 
 
 # In[ ]:
