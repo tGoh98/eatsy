@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block head %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -19,11 +20,153 @@
             <!-- Main -->
             <div id="main">
                 <div class="inner">
-                    <h1>We selected these restaurants for you</h1>
-                    <span class="image main"><img src="{{ url_for('static', filename='images/pic13.jpg') }}" alt="" /></span>
-                    <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-                    <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+                    <h1 style="margin-bottom: 0">We selected these restaurants for you</h1>
+                    <section class="tiles" style="margin-top: 0">
+                        <article class="style1">
+                            <span class="image">
+                                <img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="" />
+                            </span>
+                            <a>
+                                <h2>Mala Sichuan</h2>
+                                <div class="content">
+                                    <p class="progress">Low budget</p>
+                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
+                                    <p class="progress">Good for families</p>
+                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
+                                    <p class="progress">Quiet atmosphere</p>
+                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
+                                </div>
+                            </a>
+                        </article>
+                        <article class="style2">
+                            <span class="image">
+                                <img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" />
+                            </span>
+                            <a>
+                                <h2>Chipotle</h2>
+                                <div class="content">
+                                    <p class="progress">Low budget</p>
+                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
+                                    <p class="progress">Good for families</p>
+                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
+                                    <p class="progress">Quiet atmosphere</p>
+                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
+                                </div>
+                            </a>
+                        </article>
+                        <article class="style3">
+                            <span class="image">
+                                <img src="{{ url_for('static', filename='images/pic03.jpg') }}" alt="" />
+                            </span>
+                            <a>
+                                <h2>Taco Bell</h2>
+                                <div class="content">
+                                    <p class="progress">Low budget</p>
+                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
+                                    <p class="progress">Good for families</p>
+                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
+                                    <p class="progress">Quiet atmosphere</p>
+                                    <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
+                                </div>
+                            </a>
+                        </article>
+                        <article class="style4">
+									<span class="image">
+										<img src="{{ url_for('static', filename='images/pic04.jpg') }}" alt="" />
+									</span>
+									<a>
+										<h2>Yumcha</h2>
+										<div class="content">
+											<p class="progress">Low budget</p>
+                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
+                                            <p class="progress">Taco Bell</p>
+                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
+                                            <p class="progress">Quiet atmosphere</p>
+                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
+										</div>
+									</a>
+								</article>
+								<article class="style5">
+									<span class="image">
+										<img src="{{ url_for('static', filename='images/pic05.jpg') }}" alt="" />
+									</span>
+									<a>
+										<h2>Torchy's</h2>
+										<div class="content">
+											<p class="progress">Low budget</p>
+                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
+                                            <p class="progress">Taco Bell</p>
+                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
+                                            <p class="progress">Quiet atmosphere</p>
+                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
+										</div>
+									</a>
+								</article>
+								<article class="style6">
+									<span class="image">
+										<img src="{{ url_for('static', filename='images/pic06.jpg') }}" alt="" />
+									</span>
+									<a>
+										<h2>Domino's</h2>
+										<div class="content">
+											<p class="progress">Low budget</p>
+                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
+                                            <p class="progress">Taco Bell</p>
+                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
+                                            <p class="progress">Quiet atmosphere</p>
+                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
+										</div>
+									</a>
+								</article>
+                    </section>
+
+                    <div>
+                        <br>
+                        <br>
+                        <h2>Group Preferences:</h2>
+
+                        <canvas id="myChart" width="200" height="200"></canvas>
+                        <script>
+                        var ctx = document.getElementById('myChart').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Quiet Atmosphere', 'Mexican Food', 'Late Night', 'Good For Dancing', 'Take Out', 'WiFi'],
+                                datasets: [{
+                                    label: 'Weight',
+                                    data: [7.5, 2.6, 3.2, 5.0, 2.9, 10.0],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                        </script>
+                    </div>
+
                 </div>
             </div>
         </div>
