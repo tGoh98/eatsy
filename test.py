@@ -1,3 +1,6 @@
 import modeltrain as mt
-mt.findgoodinps()
+x = mt.findgoodinps()
+
+c = mt.makemodel(x[0])
+print(c)
 
