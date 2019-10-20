@@ -132,7 +132,7 @@ def buildprefs(c):
     arr2 = (arr2-min(arr2))/(max(arr2)-min(arr2)) * 10
 #     print(arr2)
     arr2 = [int(round( i,0)) for i in arr2]
-    r = 3
+    r = 5
     #list(sorted(allca))[]
     oldkey = lambda i: list(sorted(allca))[int(list(tojson.keys())[i])]
     return {make_pretty(oldkey(i)):arr2[9 - i] for i in range(r)},[int(list(tojson.keys())[i]) for i in range(r)]
