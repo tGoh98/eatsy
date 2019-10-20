@@ -30,7 +30,7 @@ def loading():
 
 @app.route('/results')
 def results():
-    restaurants = json.load(open('dummyRestaurants.json'))
+    restaurants = json.load(open('busselections.txt'))
 
     group_preferences = json.load(open('grouppreferences.txt'))
     data = []

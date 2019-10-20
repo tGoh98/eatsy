@@ -51,40 +51,14 @@
                                     <h2>{{ restaurant }}</h2>
                                     <div class="content">
                                         {% for attr in restaurants[restaurant] %}
-                                            <p class="progress">{{ attr }}</p>
+                                            <p class="progress">{{ attr }}
                                             {% if restaurants[restaurant][attr] == 0 %}
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar0.png') }}" alt="" />
+                                                <img class="progress" src="{{ url_for('static', filename='images/checkmark.png') }}" alt="" />
                                             {% endif %}
                                             {% if restaurants[restaurant][attr] == 1 %}
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar1.png') }}" alt="" />
+                                                <img class="progress" src="{{ url_for('static', filename='images/xMark.png') }}" alt="" />
                                             {% endif %}
-                                            {% if restaurants[restaurant][attr] == 2 %}
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar2.png') }}" alt="" />
-                                            {% endif %}
-                                            {% if restaurants[restaurant][attr] == 3 %}
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
-                                            {% endif %}
-                                            {% if restaurants[restaurant][attr] == 4 %}
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar4.png') }}" alt="" />
-                                            {% endif %}
-                                            {% if restaurants[restaurant][attr] == 5 %}
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
-                                            {% endif %}
-                                            {% if restaurants[restaurant][attr] == 6 %}
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar6.png') }}" alt="" />
-                                            {% endif %}
-                                            {% if restaurants[restaurant][attr] == 7 %}
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar7.png') }}" alt="" />
-                                            {% endif %}
-                                            {% if restaurants[restaurant][attr] == 8 %}
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar8.png') }}" alt="" />
-                                            {% endif %}
-                                            {% if restaurants[restaurant][attr] == 9 %}
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar9.png') }}" alt="" />
-                                            {% endif %}
-                                            {% if restaurants[restaurant][attr] == 10 %}
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
-                                            {% endif %}
+                                            </p>
                                         {% endfor %}
                                     </div>
                                 </a>
