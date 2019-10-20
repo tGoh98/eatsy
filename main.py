@@ -1,4 +1,4 @@
-import json
+import json, createpeople
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -13,10 +13,11 @@ def index():
             errorMessage = "Please select two or more users!"
             did_update = True
         else:
-            # json.dump(request.form, open('selectedUsers.json', 'w'))
+            json.dump(request.form, open('selectedUsers.json', 'w'))
             return render_template("loading.html", selectedUsers=request.form)
 
-    users = json.load(open('dummyUsers.json'))
+    createpeople.getsamplepeople()
+    users = json.load(open('idtonameandattr.txt'))
     return render_template("index.html", users=users, did_update=did_update, errorMessage=errorMessage)
 
 
