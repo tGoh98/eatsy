@@ -1,1 +1,1 @@
-{"Wi Fi no": 10, "Imported  Food": 7, "Coffee &  Tea": 5, "Breakfast &  Brunch": 4, "Good For Meal dessert": 4}
+{"Sandwiches": 10, "Event  Planning &  Services": 2, "Ambience hipster": 1, "Restaurants": 0, "Business Parking street": 0}

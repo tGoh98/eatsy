@@ -1,5 +1,5 @@
 import json, createpeople, modeleval
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from os import path
 
 app = Flask(__name__)
@@ -15,8 +15,8 @@ def index():
             did_update = True
         else:
             json.dump(request.form, open('selectedUsers.json', 'w'))
-            modeleval.test() #HEREEEEEEEEEE
-            return render_template("loading.html", selectedUsers=request.form)
+            return redirect(url_for('loading'))
+            # return render_template("loading.html", selectedUsers=request.form)
 
     if not path.exists('idtonameandattr.txt'):
         createpeople.getsamplepeople()
@@ -26,6 +26,7 @@ def index():
 
 @app.route('/loading')
 def loading():
+    modeleval.createmodel()
     return render_template('loading.html')
 
 
