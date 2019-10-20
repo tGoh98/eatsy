@@ -1,5 +1,6 @@
 import json, createpeople
 from flask import Flask, render_template, request
+from os import path
 
 app = Flask(__name__)
 
@@ -16,7 +17,8 @@ def index():
             json.dump(request.form, open('selectedUsers.json', 'w'))
             return render_template("loading.html", selectedUsers=request.form)
 
-    createpeople.getsamplepeople()
+    if not path.exists('idtonameandattr.txt'):
+        createpeople.getsamplepeople()
     users = json.load(open('idtonameandattr.txt'))
     return render_template("index.html", users=users, did_update=did_update, errorMessage=errorMessage)
 
