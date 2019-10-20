@@ -1,10 +1,14 @@
-from flask import Flask, render_template
+import json
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
+    if request.method == 'POST':
+        json.dump(request.form, open('selectedUsers.json', 'w'))
+        return render_template("loading.html")
     return render_template("index.html")
 
 
