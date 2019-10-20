@@ -8,5 +8,10 @@ def hello_world():
     return render_template("index.html")
 
 
+@app.route('/elements')
+def elements():
+    return render_template("elements.html")
+
+
 if __name__ == '__main__':
     app.run(debug=True)
