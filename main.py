@@ -1,4 +1,4 @@
-import json, createpeople
+import json, createpeople, modeleval
 from flask import Flask, render_template, request
 from os import path
 
@@ -25,6 +25,7 @@ def index():
 
 @app.route('/loading')
 def loading():
+    modeleval.createmodel()
     return render_template('loading.html')
 
 

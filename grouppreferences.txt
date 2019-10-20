@@ -1,1 +1,0 @@
-{"Wi Fi no": 10, "Imported  Food": 7, "Coffee &  Tea": 5, "Breakfast &  Brunch": 4, "Good For Meal dessert": 4}
