@@ -43,102 +43,150 @@
 {#                                <label for="lillian">Lillian</label>#}
 
                                 <section class="tiles" style="margin-top: 0">
-                                    <article class="style1">
-                                        <span class="image">
-                                            <img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="" />
-                                        </span>
-                                        <a>
-                                            <h2>Michael</h2>
-                                            <div class="content">
-                                                <p class="progress">Low budget</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
-                                                <p class="progress">Taco Bell</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
-                                                <p class="progress">Quiet atmosphere</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
-                                            </div>
-                                        </a>
-                                    </article>
-                                    <article class="style2">
-                                        <span class="image">
-                                            <img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" />
-                                        </span>
-                                        <a>
-                                            <h2>Yong</h2>
-                                            <div class="content">
-                                                <p class="progress">Low budget</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
-                                                <p class="progress">Taco Bell</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
-                                                <p class="progress">Quiet atmosphere</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
-                                            </div>
-                                        </a>
-                                    </article>
-                                    <article class="style3">
-                                        <span class="image">
-                                            <img src="{{ url_for('static', filename='images/pic03.jpg') }}" alt="" />
-                                        </span>
-                                        <a>
-                                            <h2>Tim</h2>
-                                            <div class="content">
-                                                <p class="progress">Low budget</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
-                                                <p class="progress">Taco Bell</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
-                                                <p class="progress">Quiet atmosphere</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
-                                            </div>
-                                        </a>
-                                    </article>
-                                    <article class="style4">
-                                        <span class="image">
-                                            <img src="{{ url_for('static', filename='images/pic04.jpg') }}" alt="" />
-                                        </span>
-                                        <a>
-                                            <h2>Eddy</h2>
-                                            <div class="content">
-                                                <p class="progress">Low budget</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
-                                                <p class="progress">Taco Bell</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
-                                                <p class="progress">Quiet atmosphere</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
-                                            </div>
-                                        </a>
-                                    </article>
-                                    <article class="style5">
-                                        <span class="image">
-                                            <img src="{{ url_for('static', filename='images/pic05.jpg') }}" alt="" />
-                                        </span>
-                                        <a>
-                                            <h2>Keziah</h2>
-                                            <div class="content">
-                                                <p class="progress">Low budget</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
-                                                <p class="progress">Taco Bell</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
-                                                <p class="progress">Quiet atmosphere</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
-                                            </div>
-                                        </a>
-                                    </article>
-                                    <article class="style6">
-                                        <span class="image">
-                                            <img src="{{ url_for('static', filename='images/pic06.jpg') }}" alt="" />
-                                        </span>
-                                        <a>
-                                            <h2>Lillian</h2>
-                                            <div class="content">
-                                                <p class="progress">Low budget</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
-                                                <p class="progress">Taco Bell</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
-                                                <p class="progress">Quiet atmosphere</p>
-                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
-                                            </div>
-                                        </a>
-                                    </article>
+                                    {% for user in users %}
+                                        <article class="style{{ loop.index }}">
+                                            <span class="image">
+                                                <img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="" />
+                                            </span>
+                                            <a>
+                                                <h2>{{ user }}</h2>
+                                                <div class="content">
+                                                    {% for attr in users[user] %}
+                                                        <p class="progress">{{ attr }}</p>
+                                                        {% if users[user][attr] == 0 %}
+                                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar0.png') }}" alt="" />
+                                                        {% endif %}
+                                                        {% if users[user][attr] == 1 %}
+                                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar1.png') }}" alt="" />
+                                                        {% endif %}
+                                                        {% if users[user][attr] == 2 %}
+                                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar2.png') }}" alt="" />
+                                                        {% endif %}
+                                                        {% if users[user][attr] == 3 %}
+                                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />
+                                                        {% endif %}
+                                                        {% if users[user][attr] == 4 %}
+                                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar4.png') }}" alt="" />
+                                                        {% endif %}
+                                                        {% if users[user][attr] == 5 %}
+                                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />
+                                                        {% endif %}
+                                                        {% if users[user][attr] == 6 %}
+                                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar6.png') }}" alt="" />
+                                                        {% endif %}
+                                                        {% if users[user][attr] == 7 %}
+                                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar7.png') }}" alt="" />
+                                                        {% endif %}
+                                                        {% if users[user][attr] == 8 %}
+                                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar8.png') }}" alt="" />
+                                                        {% endif %}
+                                                        {% if users[user][attr] == 9 %}
+                                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar9.png') }}" alt="" />
+                                                        {% endif %}
+                                                        {% if users[user][attr] == 10 %}
+                                                            <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                            </a>
+                                        </article>
+                                    {%  endfor %}
+{#                                    <article class="style1">#}
+{#                                        <span class="image">#}
+{#                                            <img src="{{ url_for('static', filename='images/pic01.jpg') }}" alt="" />#}
+{#                                        </span>#}
+{#                                        <a>#}
+{#                                            <h2>Michael</h2>#}
+{#                                            <div class="content">#}
+{#                                                <p class="progress">Low budget</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />#}
+{#                                                <p class="progress">Taco Bell</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />#}
+{#                                                <p class="progress">Quiet atmosphere</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </article>#}
+{#                                    <article class="style2">#}
+{#                                        <span class="image">#}
+{#                                            <img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" />#}
+{#                                        </span>#}
+{#                                        <a>#}
+{#                                            <h2>Yong</h2>#}
+{#                                            <div class="content">#}
+{#                                                <p class="progress">Low budget</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />#}
+{#                                                <p class="progress">Taco Bell</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />#}
+{#                                                <p class="progress">Quiet atmosphere</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </article>#}
+{#                                    <article class="style3">#}
+{#                                        <span class="image">#}
+{#                                            <img src="{{ url_for('static', filename='images/pic03.jpg') }}" alt="" />#}
+{#                                        </span>#}
+{#                                        <a>#}
+{#                                            <h2>Tim</h2>#}
+{#                                            <div class="content">#}
+{#                                                <p class="progress">Low budget</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />#}
+{#                                                <p class="progress">Taco Bell</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />#}
+{#                                                <p class="progress">Quiet atmosphere</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </article>#}
+{#                                    <article class="style4">#}
+{#                                        <span class="image">#}
+{#                                            <img src="{{ url_for('static', filename='images/pic04.jpg') }}" alt="" />#}
+{#                                        </span>#}
+{#                                        <a>#}
+{#                                            <h2>Eddy</h2>#}
+{#                                            <div class="content">#}
+{#                                                <p class="progress">Low budget</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />#}
+{#                                                <p class="progress">Taco Bell</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />#}
+{#                                                <p class="progress">Quiet atmosphere</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </article>#}
+{#                                    <article class="style5">#}
+{#                                        <span class="image">#}
+{#                                            <img src="{{ url_for('static', filename='images/pic05.jpg') }}" alt="" />#}
+{#                                        </span>#}
+{#                                        <a>#}
+{#                                            <h2>Keziah</h2>#}
+{#                                            <div class="content">#}
+{#                                                <p class="progress">Low budget</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />#}
+{#                                                <p class="progress">Taco Bell</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />#}
+{#                                                <p class="progress">Quiet atmosphere</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </article>#}
+{#                                    <article class="style6">#}
+{#                                        <span class="image">#}
+{#                                            <img src="{{ url_for('static', filename='images/pic06.jpg') }}" alt="" />#}
+{#                                        </span>#}
+{#                                        <a>#}
+{#                                            <h2>Lillian</h2>#}
+{#                                            <div class="content">#}
+{#                                                <p class="progress">Low budget</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar5.png') }}" alt="" />#}
+{#                                                <p class="progress">Taco Bell</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar10.png') }}" alt="" />#}
+{#                                                <p class="progress">Quiet atmosphere</p>#}
+{#                                                <img class="progress" src="{{ url_for('static', filename='images/progressbar3.png') }}" alt="" />#}
+{#                                            </div>#}
+{#                                        </a>#}
+{#                                    </article>#}
                                 </section>
 
                                 <br>
