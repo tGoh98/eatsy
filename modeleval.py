@@ -37,8 +37,8 @@ import modeltrain as mt
 
 with open('bovec.txt') as json_file:
     bovec = json.load(json_file)
-with open('buisnessoutput.txt') as json_file:
-    bo = json.load(json_file)
+# with open('buisnessoutput.txt') as json_file:
+#     bo = json.load(json_file)
 with open('allca.txt') as json_file:
     allca = json.load(json_file)
 with open('business_map.txt') as json_file:
@@ -49,7 +49,7 @@ with open('business_map.txt') as json_file:
 
 
 def botovec(bsn):
-    savesum = bo[bsn]
+    savesum = bo[bsn] #uncomment bo inport
     newsum = {}
 #         print('got here 1')
     if not len(savesum) == 0:
