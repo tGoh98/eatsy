@@ -1,1 +1,1 @@
-{"Wi Fi no": 10, "Imported  Food": 7, "Coffee &  Tea": 5}
+{"Good For Meal dessert": 10, "Chocolatiers &  Shops": 3, "Dogs Allowed": 2, "Outdoor Seating": 2, "Noise Level quiet": 2}
