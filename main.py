@@ -15,6 +15,7 @@ def index():
             did_update = True
         else:
             json.dump(request.form, open('selectedUsers.json', 'w'))
+            modeleval.test() #HEREEEEEEEEEE
             return render_template("loading.html", selectedUsers=request.form)
 
     if not path.exists('idtonameandattr.txt'):
@@ -25,7 +26,6 @@ def index():
 
 @app.route('/loading')
 def loading():
-    modeleval.createmodel()
     return render_template('loading.html')
 
 
