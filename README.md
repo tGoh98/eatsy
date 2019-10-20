@@ -11,5 +11,3 @@
 
 ## Team
 eatsy was created by Michael Sprintson (michaelsprintson), Timothy Goh (tGoh98), Sanghyeon Lee (SangHyeonLee), and Yong Shin (yowashi23) for TAMU Datathon. Read more about it in the [Devpost](https://devpost.com/software/eatsy)..
-
-![eatsy Logo](https://github.com/tGoh98/eatsy/static/images/logo.png)
