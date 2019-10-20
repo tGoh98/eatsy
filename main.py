@@ -13,8 +13,8 @@ def index():
             errorMessage = "Please select two or more users!"
             did_update = True
         else:
-            json.dump(request.form, open('selectedUsers.json', 'w'))
-            return render_template("loading.html")
+            # json.dump(request.form, open('selectedUsers.json', 'w'))
+            return render_template("loading.html", selectedUsers=request.form)
 
     users = json.load(open('dummyUsers.json'))
     return render_template("index.html", users=users, did_update=did_update, errorMessage=errorMessage)
