@@ -121,6 +121,7 @@ def findgoodinps(limit = 100):
 
 
 def makemodel(inp):
+    tojson = {}
     vinp = vecsperuser(inp)
     vecs = np.asarray(list(vinp.values()))
     label = []
@@ -128,11 +129,20 @@ def makemodel(inp):
         users[inp]
         label.append(users[inp][bsn])
     c = LogisticRegression(random_state=0, solver='lbfgs').fit(vecs, label).coef_[0]
-    top_idx = np.argsort(c)[-5:]
+    arr = np.asarray([round(i,2) for i in c])
+    arr = (arr-min(arr))/(max(arr)-min(arr))
+    marr = (arr+1)*100000
+#     print(marr)
+#     print(max(marr),min(marr))
+    top_idx = np.argsort(c)[-10:]
     top_values = [c[i] for i in top_idx]
     for idx in top_idx:
-        print(list(sorted(allca))[idx],c[idx])
-    return c
+        tojson[list(sorted(allca))[idx]] =int(round( marr[idx],0))
+    arr2 = np.asarray(list(tojson.values()))
+    arr2 = (arr2-min(arr2))/(max(arr2)-min(arr2)) * 10
+    print(arr2)
+    arr2 = [int(round( i,0)) for i in arr2]
+    return c, {list(tojson.keys())[i]:arr2[9 - i] for i in range(3)}
 
 
 # In[532]:
