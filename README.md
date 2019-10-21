@@ -15,4 +15,4 @@
 3. The server should now be running at ```localhost:5000```
 
 ## Team
-eatsy was created by Michael Sprintson [michaelsprintson](https://github.com/michaelsprintson), Timothy Goh [tGoh98](https://github.com/tgoh98), Sanghyeon Lee [SangHyeonLee](https://github.com/sanghyeonlee), and Yong Shin [yowashi23](https://github.com/towashi23) for [TAMU Datathon 2019](https://tamudatathon.com). Read more about it in the [Devpost](https://devpost.com/software/eatsy).
+eatsy was created by Michael Sprintson [michaelsprintson](https://github.com/michaelsprintson), Timothy Goh [tGoh98](https://github.com/tgoh98), Sanghyeon Lee [SangHyeonLee](https://github.com/sanghyeonlee), and Yong Shin [yowashi23](https://github.com/yowashi23) for [TAMU Datathon 2019](https://tamudatathon.com). Read more about it in the [Devpost](https://devpost.com/software/eatsy).
